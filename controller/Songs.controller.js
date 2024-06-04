@@ -5,12 +5,12 @@ export const addsongFunction = async (req, res, next) => {
 
   try {
     // Buscar si la canción ya existe en la playlist
-    const query = 'SELECT * FROM songs WHERE playlist_id = ? AND song_id = ?';
-    const [existingSong] = await pool.query(query, [playlist_id, song_id]);
+    // const query = 'SELECT * FROM songs WHERE playlist_id = ? AND song_id = ?';
+    // const existingSong = await pool.query(query, [playlist_id, song_id]);
 
-    if (existingSong.length > 0) {
-      return res.status(200).json({ message: "Canción ya registrada" });
-    }
+    // if (existingSong.length > 0) {
+    //   return res.status(200).json({ message: "Canción ya registrada" });
+    // }
 
     // Insertar canción
     const insertQuery = "INSERT INTO songs (playlist_id, song_id, name, artist, Preview_Song, Release_Date, Image) VALUES (?,?,?,?,?,?,?)";
