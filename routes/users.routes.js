@@ -5,6 +5,6 @@ const Users = express.Router();
 
 Users.post('/users', createUser);
 
-Users.get('/Myuser', SearchUser)
+Users.get('/Myuser/:auth0_id', SearchUser)
 
 export default Users;

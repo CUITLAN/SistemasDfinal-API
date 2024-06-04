@@ -27,7 +27,7 @@ export const createUser = async (req, res, next) => {
 
 
 export const SearchUser = async (req, res, next) => {
-  const { auth0_id } = req.body;
+  const { auth0_id } = req.params; // Usar params en lugar de body
   try {
     const query = 'SELECT * FROM Users WHERE Auth0_id = ?';
     const result = await pool.query(query, [auth0_id]);
@@ -42,5 +42,6 @@ export const SearchUser = async (req, res, next) => {
     return res.status(500).json({ error: 'Error al buscar el usuario' });
   }
 };
+
 
 //made by Alan T 
